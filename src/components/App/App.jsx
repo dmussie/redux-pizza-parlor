@@ -25,8 +25,6 @@ function App() {
     })
   }
 
-
-
   useEffect(() => {
     fetchPizzaList();
     fetchOrders();

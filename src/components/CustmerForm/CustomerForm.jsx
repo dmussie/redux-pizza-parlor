@@ -8,7 +8,7 @@ import { useHistory} from 'react-router-dom';
 function CustomerForm({fet}) {
     const dispatch = useDispatch();
     const history = useHistory();
-    let total
+    let total=0;
     //const [choice, setChoice] = useState('')
     const [customer, setCustomer] = useState({
         customer_name: '',
@@ -23,8 +23,9 @@ function CustomerForm({fet}) {
 
     const handleNextButton = (event) => {
         event.preventDefault();
-        const action = {type:'NEXT'}
+        const action = {type:'NEXT',payload:customer}
         dispatch(action);
+        history.push('/checkout');
 
     }
     
