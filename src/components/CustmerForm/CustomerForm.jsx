@@ -2,9 +2,13 @@ import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory} from 'react-router-dom';
 
 
-function CustomerForm() {
+function CustomerForm({fet}) {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    let total
     //const [choice, setChoice] = useState('')
     const [customer, setCustomer] = useState({
         customer_name: '',
@@ -19,30 +23,14 @@ function CustomerForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        const action = {type:'NEXT'}
+        dispatch(action);
 
-        axios({
-            method: 'POST',
-            url:'/api/order',
-            data: {
-                customer: customer
-            }
-
-        }).then(response =>{
-            console.log(response.data);
-            dispatch({
-                
-            })
-            //Fetch order
-
-        }).catch((error) =>{
-            console.log('Could not get orders', error);
-        })
-        
     }
     
-
     return (
         <div>
+            <h2>Customer Information</h2>
             <form onSubmit={handleSubmit}>
 
                 <div>
