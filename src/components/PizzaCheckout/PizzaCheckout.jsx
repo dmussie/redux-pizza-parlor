@@ -1,5 +1,7 @@
-function PizzaCheckout(){
+import { useSelector } from 'react-redux';
 
+function PizzaCheckout(){
+    const reduxStore = useSelector( store => store )
 
     return(
         <div>
@@ -25,10 +27,17 @@ function PizzaCheckout(){
                 </thead>
                 <tbody>
                     <tr>
-                        <td></td>
+                        <td>Sausage</td>
+                        <td>price</td>
                     </tr>
                 </tbody>
-            </table>
+            </table>  
+
+            <span>Total Cost </span>
+
+            <br />
+
+            <button>CHECKOUT</button>
         </div>
     )
 }
