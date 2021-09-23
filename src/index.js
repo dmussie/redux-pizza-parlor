@@ -16,11 +16,17 @@ const pizzaReducer = (state = [], action) => {
 
 const orderReducer = (state = [], action) => {
     console.log('in orderReducer');
+    if (action.type ==='SET_ORDER_LIST') {
+        return action.payload;
+    }
     return state;
 }
 
 const cartReducer = (state = [], action) => {
-    console.log('in cartReducer');
+    console.log('inch cartReducer');
+    if (action.type === 'ADD_TO_CART') {
+        return [...state, action.payload];
+    }
     return state;
 }
 

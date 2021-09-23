@@ -1,17 +1,24 @@
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
+import PizzaListItem from './PizzaListItem';
+import './PizzaList.css';
+import {useHistory} from 'react-router-dom';
 
 function PizzaList() {
     console.log('in PizzaList');
     const reduxStore = useSelector(store => store);
+    const history = useHistory();
     console.log(reduxStore.pizzaReducer);
-    return (
-        <section>
-            <ul>
+const nextPage = () => {
+    history.push('/order');    
+}
 
-            {reduxStore.pizzaReducer.map((pizza) => 
-                <li key={pizza.id}>{pizza.name} {pizza.description} {pizza.price} <img src={pizza.image_path}/></li>
-            )}
-            </ul>
+    return (
+        <section className='pizza-list'>
+                {reduxStore.pizzaReducer.map((pizza) => {
+                    return <PizzaListItem key={pizza.id} pizza={pizza} />
+                }
+                )}
+                <button onClick={nextPage}>Next</button>
         </section>
     );
 }
