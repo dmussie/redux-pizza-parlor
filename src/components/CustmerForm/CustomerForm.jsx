@@ -21,7 +21,7 @@ function CustomerForm({fet}) {
         // }
     });
 
-    const handleSubmit = (event) => {
+    const handleNextButton = (event) => {
         event.preventDefault();
         const action = {type:'NEXT'}
         dispatch(action);
@@ -31,7 +31,7 @@ function CustomerForm({fet}) {
     return (
         <div>
             <h2>Customer Information</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleNextButton}>
 
                 <div>
                     <input
