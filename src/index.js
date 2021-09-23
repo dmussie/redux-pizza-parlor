@@ -16,6 +16,9 @@ const pizzaReducer = (state = [], action) => {
 
 const orderReducer = (state = [], action) => {
     console.log('in orderReducer');
+    if (action.type ==='SET_ORDER_LIST') {
+        return action.payload;
+    }
     return state;
 }
 
