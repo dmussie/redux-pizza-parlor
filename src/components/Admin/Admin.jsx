@@ -1,8 +1,9 @@
 import {useSelector} from 'react-redux';
 
 function Admin () {
-   let totalCost = 0;
-   const myReduxStore = useSelector(store => store);
+   const reduxStore = useSelector(store => store);
+   console.log(reduxStore.orderReducer);
+   
    // map through pizza cost item thing, and add cost to total 
     return (
         <>
@@ -18,14 +19,14 @@ function Admin () {
 
             <tbody>
                 {
-                    reduxStore.map(order => (
+                    reduxStore.orderReducer.map((order) => 
                         <tr>
-                            <td>order.name</td>
-                            <td>order.time</td>
-                            <td>order.type</td>
-                            <td>order.cost</td>
+                            <td>{order.name}</td>
+                            <td>{order.time}</td>
+                            <td>{order.type}</td>
+                            <td>{order.cost}</td>
                         </tr>
-                    ))
+                    )
                     
                 }
                 
@@ -36,3 +37,5 @@ function Admin () {
         </>
     )
 }
+
+export default Admin;

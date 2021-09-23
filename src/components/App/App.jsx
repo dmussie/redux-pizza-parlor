@@ -2,7 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import PizzaList from '../PizzaList/PizzaList';
+import {useDispatch} from 'react-redux';
+import { useEffect } from 'react';
+import Admin from '../Admin/Admin';
 
 function App() {
   //GET request for orders
@@ -20,6 +23,27 @@ function App() {
       })
     })
   }
+
+
+
+  useEffect(() => {
+    fetchPizzaList();
+    fetchOrders();
+  },[]);
+  
+  const fetchPizzaList = () => {
+    axios.get('/api/pizza').then(response => {
+      console.log(response.data);
+      const action = {type: 'SET_PIZZA_LIST', payload: response.data}
+      dispatch(action);
+    });
+  }
+
+  
+
+
+
+
   return (
     <div className='App'>
       <header className='App-header'>
@@ -28,8 +52,9 @@ function App() {
       <Router>
 
         <Route exact path="/">
-          <img src='images/pizza_photo.png' />
-          <p>Pizza is great.</p>
+          <PizzaList 
+          fetchPizzaList={fetchPizzaList}
+          />
         </Route>
 
         <Route exact path="/order">
@@ -42,6 +67,7 @@ function App() {
 
         <Route exact path="/admin">
           <p>Pizza is admin.</p>
+          <Admin ></Admin>
         </Route>
         
       </Router>
