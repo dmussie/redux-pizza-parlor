@@ -1,10 +1,10 @@
 .pizza-box {
     float: left;
     width: 300px;
-    height: 400px;
+    height: 460px;
     margin: 10px;
     border: 3px solid black;
-    background-color: a;
+    background-color: antiquewhite;
   }
   
   .pizza-img {

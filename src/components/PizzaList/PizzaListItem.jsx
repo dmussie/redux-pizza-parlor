@@ -14,13 +14,9 @@ function PizzaListItem({ pizza }) {
     return (
         <div className="pizza-box">
             <img className="pizza-img" src={pizza.image_path} />
-            <br />
-            {pizza.name}
-            <br />
+            <h4>{pizza.name}</h4>
             {pizza.description}
-            <br />
-            {pizza.price}
-            <br />
+            <h5>{pizza.price}</h5>
             <button onClick={handleAddToCart}>Add To Cart</button>
         </div>
     );
