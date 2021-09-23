@@ -6,7 +6,7 @@ function PizzaCheckout(){
     const history = useHistory();
 
     const handleCheckout = () => {
-        // const action = { type: 'CLEAR_ALL' }
+        // const action = { type: 'CLEAR_ALL_ARRAYS' }
         // dispatch(action);
         history.push('/');
     }
