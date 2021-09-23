@@ -7,6 +7,9 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
 const pizzaReducer = (state = [], action) => {
+    if (action.type === 'SET_PIZZA_LIST') {
+        return action.payload;
+    }
     console.log('in pizzaReducer');
     return state;
 }
