@@ -23,7 +23,10 @@ const orderReducer = (state = [], action) => {
 }
 
 const cartReducer = (state = [], action) => {
-    console.log('in cartReducer');
+    console.log('inch cartReducer');
+    if (action.type === 'ADD_TO_CART') {
+        return [...state, action.payload];
+    }
     return state;
 }
 
