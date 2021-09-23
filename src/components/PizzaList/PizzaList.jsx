@@ -1,4 +1,5 @@
 import {useSelector} from 'react-redux';
+import PizzaListItem from './PizzaListItem';
 
 function PizzaList() {
     console.log('in PizzaList');
@@ -7,9 +8,11 @@ function PizzaList() {
     return (
         <section>
             <ul>
-
-            {reduxStore.pizzaReducer.map((pizza) => 
-                <li key={pizza.id}>{pizza.name} {pizza.description} {pizza.price} <img src={pizza.image_path}/></li>
+            {reduxStore.pizzaReducer.map((pizza) => {
+                return <PizzaListItem key={pizza.id} pizza={pizza}/>
+            }
+            
+                
             )}
             </ul>
         </section>
