@@ -1,7 +1,15 @@
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function PizzaCheckout(){
-    const reduxStore = useSelector( store => store )
+    const reduxStore = useSelector( store => store );
+    const history = useHistory();
+
+    const handleCheckout = () => {
+        // const action = { type: 'CLEAR_ALL' }
+        // dispatch(action);
+        history.push('/');
+    }
 
     return(
         <div>
@@ -37,7 +45,7 @@ function PizzaCheckout(){
 
             <br />
 
-            <button>CHECKOUT</button>
+            <button onClick={handleCheckout}>CHECKOUT</button>
         </div>
     )
 }
