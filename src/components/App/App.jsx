@@ -5,12 +5,30 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import PizzaList from '../PizzaList/PizzaList';
 import {useDispatch} from 'react-redux';
 import { useEffect } from 'react';
+import Admin from '../Admin/Admin';
 
 function App() {
+  //GET request for orders
   const dispatch = useDispatch();
+  
+  const fetchOrders = () => {
+    axios({
+      method: 'GET',
+      url:'/api/order',
+    }).then(response => {
+      console.log(response.data);
+      dispatch({
+        type: 'SET_ORDER_LIST',
+        payload: response.data
+      })
+    })
+  }
+
+
 
   useEffect(() => {
     fetchPizzaList();
+    fetchOrders();
   },[]);
   
   const fetchPizzaList = () => {
@@ -49,6 +67,7 @@ function App() {
 
         <Route exact path="/admin">
           <p>Pizza is admin.</p>
+          <Admin ></Admin>
         </Route>
         
       </Router>
