@@ -21,6 +21,8 @@ function App() {
     });
   }
 
+  
+
 
 
 
@@ -32,7 +34,9 @@ function App() {
       <Router>
 
         <Route exact path="/">
-          <PizzaList />
+          <PizzaList 
+          fetchPizzaList={fetchPizzaList}
+          />
         </Route>
 
         <Route exact path="/order">
