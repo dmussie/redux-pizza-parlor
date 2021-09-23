@@ -1,13 +1,14 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 function PizzaCheckout(){
     const reduxStore = useSelector( store => store );
+    const dispatch = useDispatch();
     const history = useHistory();
 
     const handleCheckout = () => {
-        // const action = { type: 'CLEAR_ALL_ARRAYS' }
-        // dispatch(action);
+        const action = { type: 'CLEAR_ALL_ARRAYS' }
+        dispatch(action);
         history.push('/');
     }
 
@@ -21,8 +22,16 @@ function PizzaCheckout(){
                 <h2>Step 3: Checkout</h2>
 
             <br/>
-
-                <h3>{/* import the mailing information */}Address</h3> <p>delivery method</p>
+                {reduxStore.orderReducer.map(( pizza, i ) => {
+                    <h3>
+                        {pizza.customer_name} 
+                        {pizza.street_address}
+                        {pizza.city}
+                        {pizza.zip}
+                    </h3>
+                })}
+                <h3>Address</h3> 
+                <p>delivery method</p>
 
             <br />
 
@@ -35,7 +44,7 @@ function PizzaCheckout(){
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Sausage</td>
+                        {/* <td>{reduxStore.pizzaReducer[i].name}</td> */}
                         <td>price</td>
                     </tr>
                 </tbody>
