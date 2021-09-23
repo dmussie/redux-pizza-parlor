@@ -23,7 +23,7 @@ function App() {
         </Route>
 
         <Route exact path="/checkout">
-          <p>Pizza is checkout.</p>
+          <PizzaCheckout />
         </Route>
 
         <Route exact path="/admin">
