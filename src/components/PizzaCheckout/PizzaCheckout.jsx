@@ -22,12 +22,12 @@ function PizzaCheckout(){
                 <h2>Step 3: Checkout</h2>
 
             <br/>
-                {reduxStore.orderReducer.map(( pizza, i ) => {
-                    <h3>
-                        {pizza.customer_name} 
-                        {pizza.street_address}
-                        {pizza.city}
-                        {pizza.zip}
+                {reduxStore.orderReducer.map(( user, i ) => {
+                    <h3 key={i}>
+                        {user.customer_name} 
+                        {user.street_address}
+                        {user.user}
+                        {user.zip}
                     </h3>
                 })}
                 <h3>Address</h3> 
@@ -44,8 +44,9 @@ function PizzaCheckout(){
                 </thead>
                 <tbody>
                     <tr>
-                        {/* <td>{reduxStore.pizzaReducer[i].name}</td> */}
-                        <td>price</td>
+                        {reduxStore.cartReducer.map(( pizza, i ) => 
+                            <td key={i}>{pizza.name}</td>
+                        )}
                     </tr>
                 </tbody>
             </table>  
