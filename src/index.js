@@ -37,16 +37,23 @@ const cartReducer = (state = [], action) => {
     return state;
 }
 
-// const totalCostReducer = () => {
+const totalCostReducer = (state = 0, action) => {
+    if (action.type === 'ADD_TO_CART') {
+        let currentCost = parseFloat(action.payload.price);
+        console.log('currentCost', currentCost);
         
-// }
+        return state + currentCost;
+    }
+    return state;
+}
 
 
 const storeInstance = createStore(
     combineReducers({
         pizzaReducer,
         orderReducer,
-        cartReducer
+        cartReducer,
+        totalCostReducer
     }),
     applyMiddleware(logger)
 );
