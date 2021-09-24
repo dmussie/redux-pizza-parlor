@@ -23,10 +23,10 @@ function CustomerForm({fet}) {
 
     const handleNextButton = (event) => {
         event.preventDefault();
-        const action = {type:'NEXT',payload:customer}
+        const action = {type:'NEXT', payload:customer}
         dispatch(action);
         history.push('/checkout');
-
+        
     }
     
     return (
