@@ -2,36 +2,37 @@ import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 function CustomerForm() {
     const dispatch = useDispatch();
     const history = useHistory();
-    let total=0;
+    let total = 0;
     //const [choice, setChoice] = useState('')
-    const [customer, setCustomer] = useState({
-        customer_name: '',
-        street_address: '',
-        city: '',
-        zip: '',
-        // choice: {
-        //     pickup: '',
-        //     delivery: ''
-        // }
-    });
+    const [customerName, setCustomerName] = useState('');
+    const [customerStreetAddress, setCustomerStreetAddress] = useState('');
+    const [customerCity, setCustomerCity] = useState('');
+    const [customerZip, setCustomerZip] = useState('');
+
 
     console.log(customer);
 
     const handleNextButton = (event) => {
         event.preventDefault();
-        console.log('does it work?', customer);
-        const action = {type:'SET_ORDER_LIST', payload:customer}
+        const action = {
+            type: 'SET_ORDER_LIST', payload: {
+                customerName: customerName,
+                customerStreetAddress: customerStreetAddress,
+                customerCity: customerCity,
+                customerZip: customerZip
+            }
+        }
         dispatch(action);
         history.push('/checkout');
-        
+
     }
-    
+
     return (
         <div>
             <h2>Customer Information</h2>
@@ -39,15 +40,15 @@ function CustomerForm() {
 
                 <div>
                     <input
-                        value={customer.customer_name}
-                        onChange={(event => setCustomer.customer_name(event.target.value))}
+                        value={customerName}
+                        onChange={(event => setCustomerName(event.target.value))}
                         type='text'
                         placeholder='Name' />
                     <div />
                     <div>
                         <input
-                            value={customer.street_address}
-                            onChange={(event => setCustomer.street_address(event.target.value))}
+                            value={customerStreetAddress}
+                            onChange={(event => setCustomerStreetAddress(event.target.value))}
                             type='text'
                             placeholder='Street Address'
                         />
@@ -56,16 +57,16 @@ function CustomerForm() {
                     
 
                         <input
-                            value={customer.city}
-                            onChange={(event => setCustomer.city(event.target.value))}
+                            value={customerCity}
+                            onChange={(event => setCustomerCity(event.target.value))}
                             type='text'
                             placeholder='City'
                         />
                    
                     
                         <input
-                            value={customer.zip}
-                            onChange={(event) => setCustomer.zip(event.target.value)}
+                            value={customerZip}
+                            onChange={(event) => setCustomerZip(event.target.value)}
                             type='number'
                             placeholder='Zip'
                         />

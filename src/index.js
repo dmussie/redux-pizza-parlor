@@ -37,6 +37,11 @@ const cartReducer = (state = [], action) => {
     return state;
 }
 
+// const totalCostReducer = () => {
+        
+// }
+
+
 const storeInstance = createStore(
     combineReducers({
         pizzaReducer,

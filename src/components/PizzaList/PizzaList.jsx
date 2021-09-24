@@ -4,6 +4,7 @@ import './PizzaList.css';
 import {useHistory} from 'react-router-dom';
 
 function PizzaList() {
+    let totalCost = 0;
     console.log('in PizzaList');
     const reduxStore = useSelector(store => store);
     const history = useHistory();
@@ -14,11 +15,13 @@ const nextPage = () => {
 
     return (
         <section className='pizza-list'>
+            <h3 className="total-cost">Total Cost: ${totalCost}</h3>
                 {reduxStore.pizzaReducer.map((pizza) => {
-                    return <PizzaListItem key={pizza.id} pizza={pizza} />
+                    return <PizzaListItem key={pizza.id} pizza={pizza} totalCost={totalCost}/>
                 }
                 )}
-                <button onClick={nextPage}>Next</button>
+        <button onClick={nextPage}>Next</button>
+                
         </section>
     );
 }
