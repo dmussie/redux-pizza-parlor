@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory} from 'react-router-dom';
 
 
-function CustomerForm({fet}) {
+function CustomerForm() {
     const dispatch = useDispatch();
     const history = useHistory();
     let total=0;
