@@ -1,11 +1,12 @@
 import { useDispatch } from 'react-redux';
 import './PizzaList.css';
 
-function PizzaListItem({ pizza }) {
+function PizzaListItem({ pizza, totalCost }) {
     const dispatch = useDispatch();
 
-    const handleAddToCart = (params) => {
+    const handleAddToCart = () => {
         console.log('pizza to add', pizza.id);
+
         const action = ({type: 'ADD_TO_CART', payload: pizza});
         dispatch(action);
         alert(pizza.name + ' Pizza added!')
