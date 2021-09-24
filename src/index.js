@@ -18,6 +18,8 @@ const orderReducer = (state = [], action) => {
     console.log('in orderReducer');
     if( action.type === 'CLEAR_ALL_CARTS'){
         return [];
+    if (action.type ==='SET_ORDER_LIST') {
+        return action.payload;
     }
     return state;
 }
@@ -26,6 +28,9 @@ const cartReducer = (state = [], action) => {
     console.log('in cartReducer');
     if( action.type === 'CLEAR_ALL_CARTS'){
         return [];
+    console.log('inch cartReducer');
+    if (action.type === 'ADD_TO_CART') {
+        return [...state, action.payload];
     }
     return state;
 }
