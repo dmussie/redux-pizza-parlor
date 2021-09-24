@@ -4,9 +4,11 @@ import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import CustomerForm from '../CustomerForm/CustomerForm';
 import PizzaList from '../PizzaList/PizzaList';
+import PizzaCheckout from '../PizzaCheckout/PizzaCheckout';
 import {useDispatch} from 'react-redux';
 import { useEffect } from 'react';
 import Admin from '../Admin/Admin';
+
 
 function App() {
   //GET request for orders
@@ -59,7 +61,7 @@ function App() {
         </Route>
 
         <Route exact path="/checkout">
-          <p>Pizza is checkout.</p>
+          <PizzaCheckout />
         </Route>
 
         <Route exact path="/admin">
