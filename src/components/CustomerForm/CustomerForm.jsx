@@ -16,8 +16,6 @@ function CustomerForm() {
     const [customerZip, setCustomerZip] = useState('');
 
 
-    console.log(customer);
-
     const handleNextButton = (event) => {
         event.preventDefault();
         const action = {

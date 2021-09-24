@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -11,10 +12,27 @@ function PizzaCheckout(){
     const handleCheckout = () => {
         const action = { type: 'CLEAR_ALL_ARRAYS' }
         dispatch(action);
+
+        axios({
+            method: "POST",
+            url: '/api/order',
+            data: {
+                customer_name: reduxStore.orderReducer.customerName,
+                street_address: reduxStore.orderReducer.customerStreetAddress,
+                city: reduxStore.orderReducer.customerCity,
+                zip: reduxStore.orderReducer.customerZip,
+                type: '',
+                total: 0,
+            }
+        }).then((response) => {
+            console.log('order completed');
+            alert('Order Received!')
+        }).catch((error) => {
+            alert('Could Not Receive Order!')
+        })
+
         history.push('/');
     }
-
-    console.log('in reducer', reduxStore.orderReducer);
 
     return(
         <div>
@@ -27,14 +45,12 @@ function PizzaCheckout(){
 
             <br />
                 <div key={reduxStore.orderReducer.id}>
-                    <h3>{reduxStore.orderReducer.customer_name}</h3>
-                    <h3>{reduxStore.orderReducer.street_address}</h3>
-                    <h3>{reduxStore.orderReducer.city}</h3>
-                    <h3>{reduxStore.orderReducer.zip}</h3>
+                    <p>{reduxStore.orderReducer.customerName}</p>
+                    <p>{reduxStore.orderReducer.customerStreetAddress}</p>
+                    <p>{reduxStore.orderReducer.customerCity}</p>
+                    <p>{reduxStore.orderReducer.customerZip}</p>
 
                 </div>
-                <h3>Address</h3> 
-                <p>delivery method</p>
 
             <br />
 
