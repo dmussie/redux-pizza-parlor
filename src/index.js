@@ -16,9 +16,10 @@ const pizzaReducer = (state = [], action) => {
 
 const orderReducer = (state = [], action) => {
     console.log('in orderReducer');
-    if( action.type === 'CLEAR_ALL_CARTS'){
+    if (action.type === 'CLEAR_ALL_CARTS') {
         return [];
-    if (action.type ==='SET_ORDER_LIST') {
+    }
+    if (action.type === 'SET_ORDER_LIST') {
         return action.payload;
     }
     return state;
@@ -26,15 +27,15 @@ const orderReducer = (state = [], action) => {
 
 const cartReducer = (state = [], action) => {
     console.log('in cartReducer');
-    if( action.type === 'CLEAR_ALL_CARTS'){
+    if (action.type === 'CLEAR_ALL_CARTS') {
         return [];
-    console.log('inch cartReducer');
+        console.log('inch cartReducer');
+    }
     if (action.type === 'ADD_TO_CART') {
         return [...state, action.payload];
     }
     return state;
 }
-
 
 const storeInstance = createStore(
     combineReducers({
@@ -44,6 +45,5 @@ const storeInstance = createStore(
     }),
     applyMiddleware(logger)
 );
-
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));

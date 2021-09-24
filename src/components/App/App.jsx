@@ -45,19 +45,15 @@ function App() {
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
       </header>
-      <CustomerForm/>
-      {/* <img src='images/pizza_photo.png' /> */}
-          <p>Pizza is great.</p>
       <Router>
-
-        <Route exact path="/">
+        <Route path="/" exact>
           <PizzaList 
           fetchPizzaList={fetchPizzaList}
           />
         </Route>
-
-        <Route exact path="/order">
+        <Route path="/order">
           <p>Pizza is order.</p>
+          <CustomerForm />
         </Route>
 
         <Route exact path="/checkout">
