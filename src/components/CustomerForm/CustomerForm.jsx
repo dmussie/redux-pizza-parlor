@@ -21,9 +21,12 @@ function CustomerForm() {
         // }
     });
 
+    console.log(customer);
+
     const handleNextButton = (event) => {
         event.preventDefault();
-        const action = {type:'NEXT', payload:customer}
+        console.log('does it work?', customer);
+        const action = {type:'SET_ORDER_LIST', payload:customer}
         dispatch(action);
         history.push('/checkout');
         
@@ -37,36 +40,36 @@ function CustomerForm() {
                 <div>
                     <input
                         value={customer.customer_name}
-                        onChange={(event => setCustomer(event.target.value))}
+                        onChange={(event => setCustomer.customer_name(event.target.value))}
                         type='text'
                         placeholder='Name' />
                     <div />
                     <div>
                         <input
                             value={customer.street_address}
-                            onChange={(event => setCustomer(event.target.value))}
+                            onChange={(event => setCustomer.street_address(event.target.value))}
                             type='text'
                             placeholder='Street Address'
                         />
                     </div>
-
-                    <div>
+                    
+                    
 
                         <input
                             value={customer.city}
-                            onChange={(event => setCustomer(event.target.value))}
+                            onChange={(event => setCustomer.city(event.target.value))}
                             type='text'
                             placeholder='City'
                         />
-                    </div>
-                    <div>
+                   
+                    
                         <input
                             value={customer.zip}
-                            onChange={(event) => setCustomer(event.target.value)}
+                            onChange={(event) => setCustomer.zip(event.target.value)}
                             type='number'
                             placeholder='Zip'
                         />
-                    </div>
+                    
 
                 </div>
                 {/* <div>
@@ -84,7 +87,8 @@ function CustomerForm() {
 
                 </div> */}
 
-                <span><input type='submit' value='Next' /></span>
+                <button type='Submit'>Submit</button>
+                {/* <span><input type='submit' value='Next' /></span> */}
             </form>
 
         </div>

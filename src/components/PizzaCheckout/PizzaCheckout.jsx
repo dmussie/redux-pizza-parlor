@@ -14,6 +14,8 @@ function PizzaCheckout(){
         history.push('/');
     }
 
+    console.log('in reducer', reduxStore.orderReducer);
+
     return(
         <div>
 
@@ -23,15 +25,14 @@ function PizzaCheckout(){
 
                 <h2>Step 3: Checkout</h2>
 
-            <br/>
-                {reduxStore.orderReducer.map(( user, i ) => {
-                    <h3 key={i}>
-                        {user.customer_name} 
-                        {user.street_address}
-                        {user.user}
-                        {user.zip}
-                    </h3>
-                })}
+            <br />
+                <div key={reduxStore.orderReducer.id}>
+                    <h3>{reduxStore.orderReducer.customer_name}</h3>
+                    <h3>{reduxStore.orderReducer.street_address}</h3>
+                    <h3>{reduxStore.orderReducer.city}</h3>
+                    <h3>{reduxStore.orderReducer.zip}</h3>
+
+                </div>
                 <h3>Address</h3> 
                 <p>delivery method</p>
 
@@ -45,11 +46,13 @@ function PizzaCheckout(){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        {reduxStore.cartReducer.map(( pizza, i ) => 
-                            <td key={i}>{pizza.name}</td>
-                        )}
+                    {reduxStore.cartReducer.map(( pizza ) => 
+                    <tr key={pizza.id}>
+                        <td>{pizza.name}</td> 
+                        <td>{pizza.price}</td>
+
                     </tr>
+                    )}
                 </tbody>
             </table>  
 

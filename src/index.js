@@ -14,10 +14,10 @@ const pizzaReducer = (state = [], action) => {
     return state;
 }
 
-const orderReducer = (state = [], action) => {
+const orderReducer = (state = {}, action) => {
     console.log('in orderReducer');
     if (action.type === 'CLEAR_ALL_CARTS') {
-        return [];
+        return {};
     }
     if (action.type === 'SET_ORDER_LIST') {
         return action.payload;
