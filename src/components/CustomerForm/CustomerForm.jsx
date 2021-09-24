@@ -51,8 +51,8 @@ function CustomerForm() {
                             placeholder='Street Address'
                         />
                     </div>
-
-                    <div>
+                    
+                    
 
                         <input
                             value={customerCity}
@@ -60,15 +60,15 @@ function CustomerForm() {
                             type='text'
                             placeholder='City'
                         />
-                    </div>
-                    <div>
+                   
+                    
                         <input
                             value={customerZip}
                             onChange={(event) => setCustomerZip(event.target.value)}
                             type='number'
                             placeholder='Zip'
                         />
-                    </div>
+                    
 
                 </div>
                 {/* <div>
@@ -86,7 +86,8 @@ function CustomerForm() {
 
                 </div> */}
 
-                <span><input type='submit' value='Next' /></span>
+                <button type='Submit'>Submit</button>
+                {/* <span><input type='submit' value='Next' /></span> */}
             </form>
 
         </div>
