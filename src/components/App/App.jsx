@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import CustomerForm from '../CustmerForm/CustomerForm';
 import PizzaList from '../PizzaList/PizzaList';
 import {useDispatch} from 'react-redux';
 import { useEffect } from 'react';
@@ -24,8 +25,6 @@ function App() {
     })
   }
 
-
-
   useEffect(() => {
     fetchPizzaList();
     fetchOrders();
@@ -44,6 +43,9 @@ function App() {
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
       </header>
+      <CustomerForm/>
+      {/* <img src='images/pizza_photo.png' /> */}
+          <p>Pizza is great.</p>
       <Router>
 
         <Route exact path="/">
