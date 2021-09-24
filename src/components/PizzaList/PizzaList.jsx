@@ -4,9 +4,10 @@ import './PizzaList.css';
 import {useHistory} from 'react-router-dom';
 
 function PizzaList() {
-    let totalCost = 0;
+ 
     console.log('in PizzaList');
     const reduxStore = useSelector(store => store);
+    let totalCost = reduxStore.totalCostReducer;
     const history = useHistory();
     console.log(reduxStore.pizzaReducer);
 const nextPage = () => {
