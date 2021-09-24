@@ -11,3 +11,8 @@
     width: 300px;
     height: 200px;
   }
+
+  .total-cost {
+    text-align: right;
+    margin: 20px;
+  }

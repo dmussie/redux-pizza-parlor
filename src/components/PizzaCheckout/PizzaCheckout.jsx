@@ -22,14 +22,14 @@ function PizzaCheckout(){
                 <h2>Step 3: Checkout</h2>
 
             <br/>
-                {reduxStore.orderReducer.map(( user, i ) => {
+                {/* {reduxStore.orderReducer.map(( user, i ) => {
                     <h3 key={i}>
                         {user.customer_name} 
                         {user.street_address}
                         {user.user}
                         {user.zip}
                     </h3>
-                })}
+                })} */}
                 <h3>Address</h3> 
                 <p>delivery method</p>
 
